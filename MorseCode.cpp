@@ -80,7 +80,13 @@ int main()
 	///to display the message entered by the user
 	cout << endl << message;
 
-	// Close text file.
+	///to change all the capital letters to small letters because tree has only small letters
+	transform(message.begin(), message.end(), message.begin(), ::tolower);
+
+	///replace the spaces in the message with / a delimeter symbol as asked in the assignment to separate words with delimeter symbol
+	std::replace(message.begin(), message.end(), ' ', '/');
+
+	// Close the input file
 	inputFile.close();
 
 	return 0;
