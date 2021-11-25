@@ -71,6 +71,15 @@ int main()
 	}
 	///@endif 
 
+	/// take input from user
+	cout << "Enter message to Encode: ";
+
+	///store the message that is the whole line entered by the user in message string
+	getline(std::cin, message);
+
+	///to display the message entered by the user
+	cout << endl << message;
+
 	// Close text file.
 	inputFile.close();
 
