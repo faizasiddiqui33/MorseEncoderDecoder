@@ -30,5 +30,18 @@ public:
 		rightSubTree = NULL;
 	}
 
+Node(char data)
+	{
+		this->data = data;
+
+		code = "";
+
+		leftSubTree = NULL;
+
+		rightSubTree = NULL;
+	}
+
+	~Node(){};
+
 };
 #endif
