@@ -19,5 +19,16 @@ public:
 	Node *leftSubTree;
 
 	Node *rightSubTree;
+    Node()
+	{
+		data = ' ';
+
+		code = "";
+
+		leftSubTree = NULL;
+
+		rightSubTree = NULL;
+	}
+
 };
 #endif
