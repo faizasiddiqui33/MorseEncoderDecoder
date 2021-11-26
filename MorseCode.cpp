@@ -1,49 +1,49 @@
-/*****************************************************************************************************************************
-	* @file		MorseCode.cpp
-    * @brief	Module Name is Morse Code Encoder Decoder
-    * @author	Faiza Fatma Siddiqui, StudentID: 200473896
-    * @date		25-11-2021 (Created & Modified)
-    * @details 	This program is user-friendly and it does the following:
-	*	- Prompts the user to enter a message to encode
-	*	- It then encodes that message using morse code and displays an encoded message in the form of dots and dashes
-	*	- It creates a tree for storing all the alphabets, the tree has a depth of 4. 
-	*	- It then decodes the morse code and returns the original message entered by the user.
+/****************************************************************************************************************************
+	* @file main.cpp
+   	* @brief	Module Name is Morse Code Encoder Decoder File
+    * @author	Faiza Fatma Siddiqui
+    * @date	25-11-2021 (Created/Modified)
+    * @details Purpose is to call the main functions for creating tree, encoding in morse code and decoding
+    * Description: This function opens the input text file that is morse.txt
+	*	- It checks whether the file opened succeesfully or not, & gives an error if not found
+	*	- It takes input from the user to encode a message in Morse Code
+	*	- It calls the function for creating a binary tree
+	*	- It calls the function for encoding the letters into morse code, then decoding the morse code to original message
     * Purpose:	CS 700 - Software Development Fundamentals - Assignment 5
-	* Method Output: Enter a message, then it is encoded in morse code.
-	* @pre		Use only alphabets to encode, not numbers or symbols
+	* Method Output: * Asks the user to input a message to encode
+	* Encodes the message in Morse Code
+	* Decodes and prints the original message from Morse Code 
     * @bug		No known bugs.
 	* @warning	Improper use can crash the program while taking input from the user
 *****************************************************************************************************************************/
 
-/// This header file includes all standard libraries 
+/// This header file includes all standard libraries
 #include <bits/stdc++.h>
 
-///header file that contains function all string manipulation functions
-#include <string.h>
-
-#include<iostream>
-#include<conio.h>
-#include<cctype>
+///header file for creating tree, encoding & decoding from tree
 #include "Tree.h"
-/// This file includes all standard libraries
-using namespace std;
 
+/// tells the compiler to make all the names in the predefined standard library available to our program
+using namespace std;
 
 /*****************************************************************************************************************************
  	* @brief	Module Name is Main Function
     * @author	Faiza Fatma Siddiqui
     * @date	25-11-2021 (Created/Modified)
-    * @details Purpose is to print message to user to call create tree, encode, decode or function
-    * Description: This function reads the input file to create morse code tree, prompts the user to ente. 
-	*	- It calls the function for Creating the tree
-	*	- It calls the function for Encoding the message
-	*	- It calls the function for Decoding the message
+    * @details Purpose is to call the main functions for creating tree, encoding in morse code and decoding
+    * Description: This function opens the input text file that is morse.txt
+	*	- It checks whether the file opened succesfully or not & gives an error if not found
+	*	- It takes input from the user to encode a message in Morse Code
+	*	- It calls the function for creating a binary tree
+	*	- It calls the function for encoding the letters into morse code, then decoding the morse code to original message
     * @param	None
     * @return	integer - 0 if program executed successfully, else nonzero will be returned
-	* @pre	Precondition: User should input alphabets only, not numbers or symbols
-	* @post	Postcondition: 
+	* @pre	Precondition: Message entered by the user should not have numbers or symbols. Alphabets only
+	* @post	Postcondition: Gives the encoded and decoded message
 	* Method Output: 
-	*
+	* Asks the user to input a message to encode
+	* Encodes the message in Morse Code
+	* Decodes and prints the original message from Morse Code 
 *****************************************************************************************************************************/
 int main()
 {
@@ -86,8 +86,18 @@ int main()
 	///replace the spaces in the message with / a delimeter symbol as asked in the assignment to separate words with delimeter symbol
 	std::replace(message.begin(), message.end(), ' ', '/');
 
-	// Close the input file
+	///calling the buildTree method with object of Node class
+	root.createTree(rootPtr, inputFile);
+
+	///calling the function for encoding the message with object of Node class
+	root.encode(rootPtr, message);
+
+	///Calling the function for decoding the encoded message with object of Node class
+	root.decode(rootPtr, message);
+
+	/// Close the input file
 	inputFile.close();
 
+	/// if program executed successfully because main function is of type integer
 	return 0;
 }
