@@ -97,6 +97,23 @@ Node(char data)
 	}
 
 	~Node(){};
+/*****************************************************************************************************************************
+	* @brief	Module Name is Create Tree Function
+    * @author	Faiza Fatma Siddiqui
+    * @date	25-11-2021 (Created & Modified)
+    * @details Purpose is to read text file and create a Binary Tree with letters and codes. This function takes 2 parameters: 
+    * Description: The input file is read line by line, every alphabet is stored in a node of the tree. First, root node is filled, 
+	* 	then the left and right subtrees are filled depending on the morse code found in the input file for a-z alphabets
+    * @param[in,out] Node* rootPtr - takes the pointer of root node to create node of the tree
+	* @param[in] ifstream& fileName - address of filename that stores the nodes of the tree i.e. alphabets
+    * @return	null
+	* @pre	Precondition: The file in the main function should be opened successfully otherwise this function will not work
+	* @post	Postcondition: A binary tree is created in preorder traversal
+	* Method Output: For every alphabet stored in the file, if the code after the alphabet starts with _, then node is inserted to the right subtree
+		and if the morse code starts with a . then node is inserted to the left sub tree. 
+	*	A binary search tree for all alphabets a-z is created.
+	* @bug	No known bugs
+*****************************************************************************************************************************/
 
 void createTree(Node *rootPtr, ifstream &myInputFile)
 	{
