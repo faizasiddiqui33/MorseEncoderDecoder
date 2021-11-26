@@ -291,6 +291,22 @@ void createTree(Node *rootPtr, ifstream &myInputFile)
 		}
 		cout << endl << endl;
 	}
+    /*****************************************************************************************************************************
+	* @brief	Module Name is Decode Function
+    * @author	Faiza Fatma Siddiqui
+    * @date	25-11-2021 (Created & Modified)
+    * @details Purpose is to decode the morsecode of the message entered by the user to the original message
+    * Description: The delimeter between words is replaced with spaces then for every morsecode, 
+	* the node of the tree is traversed to find it's letter in the node to decode it.
+    * @param[in,out] Node* rootPtr - pointer to root node: To find the alphabet of every morsecode from the tree 
+	* @param[in, out] string morsecodeEncoded - the morsecode of the message entered by the user
+    * @return	null
+	* @pre	Precondition: The morsecode should be from the input file itself. The encoding should be done properly for this function to work
+	* @post	Postcondition: The morsecode is decoded to the original message
+	* Method Output: The morsecode of the message entered by the user is decoded using a binary tree
+	* @bug	No known bugs
+*****************************************************************************************************************************/
+
     void decode(Node *rootPtr, string morsecodeEncoded)
 	{
 		string morsecode;
