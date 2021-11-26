@@ -15,7 +15,6 @@
 	* @warning	Improper use can crash the program while taking input from the user
 *****************************************************************************************************************************/
 ///@file tree.h
-
 #ifndef TREE_H
 #define TREE_H
 
@@ -24,6 +23,7 @@
 
 /// tells the compiler to make all the names in the predefined standard library available to our program
 using namespace std;
+
 /*****************************************************************************************************************************
 	* @brief	Module Name is Node Class 
     * @author	Faiza Fatma Siddiqui, StudentID: 200473896
@@ -42,25 +42,21 @@ using namespace std;
 class Node
 {
 public:
+	///data stores the letter of the node
 	char data;
 
+	///to store the coded message which is being passed
 	string code;
 
+	///to setting the encoded morse code and decoded message to blank
 	string morse_encoded = "", morse_decoded = "";
 
+	///pointer to left subtree, to search letters or insert nodes
 	Node *leftSubTree;
 
+	///pointer to right subtree, to search letters or insert nodes
 	Node *rightSubTree;
-    Node()
-	{
-		data = ' ';
 
-		code = "";
-
-		leftSubTree = NULL;
-
-		rightSubTree = NULL;
-	}
 /*****************************************************************************************************************************
 	* @brief	Module Name is Node Class Default Constructor
     * @author	Faiza Fatma Siddiqui, StudentID: 200473896
@@ -84,19 +80,52 @@ public:
 	* Decodes and prints the original message from Morse Code 
     * @bug		No known bugs
 *****************************************************************************************************************************/
-
-Node(char data)
+	Node()
 	{
-		this->data = data;
+		/// initializing the data of every node as ' ' so it does not display any other garbage data
+		data = ' ';
 
+		/// initializing the code as '' so it does not display any other garbage data
 		code = "";
 
+		///initially storing the left subtree to Null, since we have not inserted anything yet
 		leftSubTree = NULL;
 
+		///initially storing the right subtree to Null, since we have not inserted anything yet
+		rightSubTree = NULL;
+	}
+/*****************************************************************************************************************************
+	* @brief	Module Name is Node Class Parametrized Constructor
+    * @author	Faiza Fatma Siddiqui, StudentID: 200473896
+    * @date		25-11-2021 (Created & Modified)
+    * @details 	Purpose of this constructor is to initialize a node that is created with its data i.e. alphabet with some values
+	* Description: Node Parametrized Constructor that intializes members for setting the values of data fields
+    * @param[in,out] data: for storing the alphabet char data type in the node of the tree
+	* @pre	Precondition: Constructor should be called with atleast one parameter of char type
+	* @post	Postcondition: Sets the inital values of code, the data stored in node, left subtree & right subtree
+	* Method Output: 
+	* Sets the node ready in the tree. The name of the node is set to the alphabet i.e data
+	* It's a new node so it's left subtree & right subtree is set to null
+    * @bug		No known bugs
+*****************************************************************************************************************************/
+	Node(char data)
+	{
+		///assigning the letter of the node to the data part of the node
+		this->data = data;
+
+		///initializing the code as "" so it does not display any other garbage data
+		code = "";
+
+		///initially storing the left subtree to Null, since we have not inserted anything yet
+		leftSubTree = NULL;
+
+		///initially storing the right subtree to Null, since we have not inserted anything yet
 		rightSubTree = NULL;
 	}
 
+	/// Destructor for destructing the member variables, else they will hold memory
 	~Node(){};
+
 /*****************************************************************************************************************************
 	* @brief	Module Name is Create Tree Function
     * @author	Faiza Fatma Siddiqui
@@ -114,7 +143,6 @@ Node(char data)
 	*	A binary search tree for all alphabets a-z is created.
 	* @bug	No known bugs
 *****************************************************************************************************************************/
-
 void createTree(Node *rootPtr, ifstream &myInputFile)
 	{
 		char alphabet;
