@@ -42,7 +42,7 @@ Node(char data)
 	}
 
 	~Node(){};
-    
+
 void createTree(Node *rootPtr, ifstream &myInputFile)
 	{
 		char alphabet;
@@ -71,7 +71,25 @@ void createTree(Node *rootPtr, ifstream &myInputFile)
 				}
 				branchPosition = rootPtr->rightSubTree;
 			}
-			
+			for (unsigned int i = 1; i < start.size(); i++)
+			{
+				if (start.at(i) == '.')
+				{
+					if (branchPosition->leftSubTree == NULL)
+					{
+						branchPosition->leftSubTree = new Node;
+					}
+					branchPosition = branchPosition->leftSubTree;
+				}
+				else if (start.at(i) == '_')
+				{
+					if (branchPosition->rightSubTree == NULL)
+					{
+						branchPosition->rightSubTree = new Node;
+					}
+					branchPosition = branchPosition->rightSubTree;
+				}
+			}
 			branchPosition->data = alphabet;
 
 			branchPosition->code = start;
@@ -79,6 +97,5 @@ void createTree(Node *rootPtr, ifstream &myInputFile)
 			branchPosition = NULL;
 		}
 	}
-
 };
 #endif
