@@ -1,9 +1,11 @@
-There are 5 files:
+There are 7 files:
 1. Output Screenshots: VS Code and Command Prompt
 2. Github repository & version history screenshots
 3. The Source Code(MorseCode.cpp file)
 4. The Header File(Tree.h)
 5. Doxygen generated html file - check index.html in that folder
+6. Input file - morse.txt that stores every alphabet and its morse code
+7. A picture of binary Tree that was created
 
 This program has been tested and can be run in Visual Studio Code & Command Prompt on Windows 10 with Mingw C++ Compiler
 
