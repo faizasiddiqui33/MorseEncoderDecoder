@@ -367,22 +367,29 @@ bool findLetter(Node *rootPtr, char lettertoFind)
 	* Method Output: A message entered by the user is encoded using a binary tree
 	* @bug	No known bugs
 *****************************************************************************************************************************/
-	void encode(Node *rootPtr, string message)
+		void encode(Node *rootPtr, string message)
 	{
+		///stores each letter from the message that is to be searched for encoding
 		char lettertoFind;
 
+		///replace the / delimeter with spaces, reversing that we did initially before calling the function
 		std::replace(message.begin(), message.end(), '/', ' ');
 
+		///to print the message entered by the user, for a well formatted output
 		cout << " in morse code: ";
 
+		///loop to traverse through every letter of the message entered
 		for (unsigned int i = 0; i < message.size(); i++)
 		{
+			///loop to traverse through every letter of the message entered
 			lettertoFind = message.at(i);
 
+			///pass every letter of the message to the find Letter in the tree to encode it
 			findLetter(rootPtr, lettertoFind);
 		}
 		cout << endl << endl;
 	}
+
     /*****************************************************************************************************************************
 	* @brief	Module Name is Decode Function
     * @author	Faiza Fatma Siddiqui
