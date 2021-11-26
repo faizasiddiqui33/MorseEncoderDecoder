@@ -128,6 +128,36 @@ void createTree(Node *rootPtr, ifstream &myInputFile)
 		}
 		return found;
 	}
+	bool findCode(Node *rootPtr, string code)
+	{
+		Node *branchPosition = NULL;
+
+		bool found = false;
+
+		if (rootPtr->code == code)
+		{
+			morse_decoded = morse_decoded + rootPtr->data + " ";
+
+			return true;
+		}
+		else if (rootPtr->code != code)
+		{
+			if (rootPtr->leftSubTree != NULL)
+			{
+				branchPosition = rootPtr->leftSubTree;
+
+				found = findCode(branchPosition, code);
+			}
+			if (rootPtr->rightSubTree != NULL && found != true)
+			{
+				branchPosition = rootPtr->rightSubTree;
+
+				found = findCode(branchPosition, code);
+			}
+		}
+		return found;
+	}
+
 
 };
 #endif
