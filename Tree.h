@@ -97,5 +97,37 @@ void createTree(Node *rootPtr, ifstream &myInputFile)
 			branchPosition = NULL;
 		}
 	}
+    bool findLetter(Node *rootPtr, char lettertoFind)
+	{
+		Node *branchPosition = NULL;
+
+		bool found = false;
+
+		if (rootPtr->data == lettertoFind)
+		{
+			cout << rootPtr->code << " ";
+
+			morse_encoded = morse_encoded + rootPtr->code + " ";
+
+			return true;
+		}
+		else if (rootPtr->data != lettertoFind)
+		{
+			if (rootPtr->leftSubTree != NULL)
+			{
+				branchPosition = rootPtr->leftSubTree;
+
+				found = findLetter(branchPosition, lettertoFind);
+			}
+			if (rootPtr->rightSubTree != NULL && found != true)
+			{
+				branchPosition = rootPtr->rightSubTree;
+
+				found = findLetter(branchPosition, lettertoFind);
+			}
+		}
+		return found;
+	}
+
 };
 #endif
