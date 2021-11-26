@@ -24,6 +24,21 @@
 
 /// tells the compiler to make all the names in the predefined standard library available to our program
 using namespace std;
+/*****************************************************************************************************************************
+	* @brief	Module Name is Node Class 
+    * @author	Faiza Fatma Siddiqui, StudentID: 200473896
+    * @date		25-11-2021 (Created & Modified)
+    * @details 	This class is used to define functions that perform the following operations related to binary tree:
+	* Description: 
+	*	- Creating a binary tree using pre-order to input alphabets
+	*	- Finding a letter from the binary tree
+	*	- Finding a morse code from the letter in the binary tree
+	*	- Encoding a message received from the main function in morse code using the binary tree
+	*	- Decoding a message from morse code using the binary tree
+    * Purpose:	CS 700 - Software Development Fundamentals - Assignment 5
+	* Method Output: A message received from main function is encoded in morse code, then decoded to original message
+    * @bug		No known bugs
+*****************************************************************************************************************************/
 class Node
 {
 public:
