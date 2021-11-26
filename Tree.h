@@ -145,58 +145,90 @@ public:
 *****************************************************************************************************************************/
 void createTree(Node *rootPtr, ifstream &myInputFile)
 	{
+		///to store the alphabet that is to be entered as data in the node
 		char alphabet;
 
+		///to store the first character of every line in the file
 		string start;
 
+		///to set the branch position as Null
 		Node *branchPosition = NULL;
 
+		/// loop until end of file is reached
 		while (!myInputFile.eof())
 		{
+			///from input file read first character,which is the alphabet to be inserted, then the next character which is it's morse code
 			myInputFile >> alphabet >> start;
 
+			///@if the morse code starts with a . insert to the left sub tree
 			if (start.at(0) == '.')
 			{
+				///@if left subtree is null then a new node should be created
 				if (rootPtr->leftSubTree == NULL)
 				{
+					///creating new node for empty left subtree
 					rootPtr->leftSubTree = new Node;
 				}
+				///@endif
+				///now the root node is found and branch position is pointing to the left sub tree
 				branchPosition = rootPtr->leftSubTree;
 			}
+			///@ifnot does the morse code starts with a _ insert to the right sub tree
 			else if (start.at(0) == '_')
 			{
+				///@if right subtree is null then a new node should be created
 				if (rootPtr->rightSubTree == NULL)
 				{
+					///creating new node for empty right subtree
 					rootPtr->rightSubTree = new Node;
 				}
+				///@endif 
+				///now the root ptr is found and branch position is pointing to the right subtree
 				branchPosition = rootPtr->rightSubTree;
 			}
+			///@endif
+			/// After the root node is found, follow the rest of the path & keep inserting the alphabets in the tree
 			for (unsigned int i = 1; i < start.size(); i++)
 			{
+				///@if the morse code starts with a ., then insert to the left sub tree
 				if (start.at(i) == '.')
 				{
+					///@if left subtree is null then a new node should be created
 					if (branchPosition->leftSubTree == NULL)
 					{
+						///creating new node on left
 						branchPosition->leftSubTree = new Node;
 					}
+					///@endif
+					///now the current position is on the left of the tree
 					branchPosition = branchPosition->leftSubTree;
 				}
+				///@ifnot does the morse code starts with a _, then insert to the right sub tree
 				else if (start.at(i) == '_')
 				{
+					///@if right subtree is null then a new node should be created
 					if (branchPosition->rightSubTree == NULL)
 					{
+						///creating new node on right
 						branchPosition->rightSubTree = new Node;
 					}
+					///@endif
+					///now the current position is on the right of the tree
 					branchPosition = branchPosition->rightSubTree;
 				}
+				///@endif 
 			}
+			/// Fill the current position with the data that is the alphabet to be inserted in the tree
 			branchPosition->data = alphabet;
 
+			/// Attach the code of the alphabet along with the current node
 			branchPosition->code = start;
 
+			///empty the current branch position to store other values in the loop
 			branchPosition = NULL;
 		}
 	}
+
     /*****************************************************************************************************************************
 	* @brief	Module Name is Find Letter Function
     * @author	Faiza Fatma Siddiqui
