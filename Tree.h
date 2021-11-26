@@ -229,7 +229,7 @@ void createTree(Node *rootPtr, ifstream &myInputFile)
 		}
 	}
 
-    /*****************************************************************************************************************************
+/*****************************************************************************************************************************
 	* @brief	Module Name is Find Letter Function
     * @author	Faiza Fatma Siddiqui
     * @date	25-11-2021 (Created & Modified)
@@ -244,39 +244,55 @@ void createTree(Node *rootPtr, ifstream &myInputFile)
 	* Method Output: Finds the position of a given letter, returns true if found, false if not found
 	* @bug	No known bugs
 *****************************************************************************************************************************/
-
-    bool findLetter(Node *rootPtr, char lettertoFind)
+bool findLetter(Node *rootPtr, char lettertoFind)
 	{
+		///the current position is set to null
 		Node *branchPosition = NULL;
 
+		///a flag to find the letter
 		bool found = false;
 
+		/// @if letter is found at the root, print and return true
 		if (rootPtr->data == lettertoFind)
 		{
+			///if the letter is at the root, print it
 			cout << rootPtr->code << " ";
 
+			///store the data of root node if found there, as the morse code encoded in a string
 			morse_encoded = morse_encoded + rootPtr->code + " ";
 
+			///return true since letter is found
 			return true;
 		}
+		///@ifnot letter is not find on the root node, then check left & right sub tree
 		else if (rootPtr->data != lettertoFind)
 		{
+			///@if left sub tree is empty, then root will point to left subtree
 			if (rootPtr->leftSubTree != NULL)
 			{
+				///set the current branch position to the left sub tree
 				branchPosition = rootPtr->leftSubTree;
 
+				///recursive call to the left subtree until the letter is found
 				found = findLetter(branchPosition, lettertoFind);
 			}
+			///@endif
+			///@if right sub tree is empty, then root will point to right subtree
 			if (rootPtr->rightSubTree != NULL && found != true)
 			{
+				///set the current branch position to the right sub tree
 				branchPosition = rootPtr->rightSubTree;
 
+				///recursive call to the right subtree until the letter is found
 				found = findLetter(branchPosition, lettertoFind);
 			}
+			///@endif 
 		}
+		///@endif
+		/// return boolean value true or false if letter is found
 		return found;
 	}
-    /*****************************************************************************************************************************
+/*****************************************************************************************************************************
 	* @brief	Module Name is Find Code Function
     * @author	Faiza Fatma Siddiqui
     * @date	25-11-2021 (Created & Modified)
