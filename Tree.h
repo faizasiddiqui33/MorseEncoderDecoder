@@ -169,6 +169,22 @@ void createTree(Node *rootPtr, ifstream &myInputFile)
 			branchPosition = NULL;
 		}
 	}
+    /*****************************************************************************************************************************
+	* @brief	Module Name is Find Letter Function
+    * @author	Faiza Fatma Siddiqui
+    * @date	25-11-2021 (Created & Modified)
+    * @details Purpose is to find the morse code from given a letter & from a given root. 
+    * Description: The alphabet can be a root node, or can be in the left subtree or right subtree
+	* A recursive call is made to the function to find the code
+    * @param[in,out] Node* rootPtr - pointer to root node to traverse & find the letter from the tree
+	* @param[in] char lettertoFind - the alphabet to find so that it can be encoded
+    * @return	bool found
+	* @pre	Precondition: alphabet to find should be from a-z only as these are the only nodes in the tree
+	* @post	Postcondition: returns true if letter is found, else returns false
+	* Method Output: Finds the position of a given letter, returns true if found, false if not found
+	* @bug	No known bugs
+*****************************************************************************************************************************/
+
     bool findLetter(Node *rootPtr, char lettertoFind)
 	{
 		Node *branchPosition = NULL;
