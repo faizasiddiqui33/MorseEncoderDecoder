@@ -158,6 +158,21 @@ void createTree(Node *rootPtr, ifstream &myInputFile)
 		return found;
 	}
 
+	void encode(Node *rootPtr, string message)
+	{
+		char lettertoFind;
 
+		std::replace(message.begin(), message.end(), '/', ' ');
+
+		cout << " in morse code: ";
+
+		for (unsigned int i = 0; i < message.size(); i++)
+		{
+			lettertoFind = message.at(i);
+
+			findLetter(rootPtr, lettertoFind);
+		}
+		cout << endl << endl;
+	}
 };
 #endif
