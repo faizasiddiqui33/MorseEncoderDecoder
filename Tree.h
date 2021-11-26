@@ -260,7 +260,21 @@ void createTree(Node *rootPtr, ifstream &myInputFile)
 		}
 		return found;
 	}
-
+/*****************************************************************************************************************************
+	* @brief	Module Name is Encode Function
+    * @author	Faiza Fatma Siddiqui
+    * @date	25-11-2021 (Created & Modified)
+    * @details Purpose is to encode a message entered by the user
+    * Description: The delimeter between words is replaced with spaces then for every alphabet in the message, 
+	* the node of the tree is traversed to find it's morse code & encode it.
+    * @param[in,out] Node* rootPtr - pointer to root node: To find the morse code of every alphabet from the tree 
+	* @param[in, out] string message - the message entered by the user
+    * @return	null
+	* @pre	Precondition: The message should not contain any symbols or numbers
+	* @post	Postcondition: The message is encoded
+	* Method Output: A message entered by the user is encoded using a binary tree
+	* @bug	No known bugs
+*****************************************************************************************************************************/
 	void encode(Node *rootPtr, string message)
 	{
 		char lettertoFind;
