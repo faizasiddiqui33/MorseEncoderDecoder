@@ -69,16 +69,17 @@ int main()
 		cerr << "Error opening file." << endl;
 		exit(1);
 	}
-	///@endif 
+	///@endif
 
 	/// take input from user
-	cout << "Enter message to Encode: ";
+	cout << "Enter Message to Encode: ";
 
 	///store the message that is the whole line entered by the user in message string
 	getline(std::cin, message);
 
 	///to display the message entered by the user
-	cout << endl << message;
+	cout << endl
+		 << message;
 
 	///to change all the capital letters to small letters because tree has only small letters
 	transform(message.begin(), message.end(), message.begin(), ::tolower);

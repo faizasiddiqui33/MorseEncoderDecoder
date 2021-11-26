@@ -1,5 +1,5 @@
 /*****************************************************************************************************************************
-    * @file		Tree.h
+	* @file		Tree.h
     * @brief	Module Name is Tree Header File
     * @author	Faiza Fatma Siddiqui, StudentID: 200473896
     * @date		25-11-2021 (Created & Modified)
@@ -57,7 +57,7 @@ public:
 	///pointer to right subtree, to search letters or insert nodes
 	Node *rightSubTree;
 
-/*****************************************************************************************************************************
+	/*****************************************************************************************************************************
 	* @brief	Module Name is Node Class Default Constructor
     * @author	Faiza Fatma Siddiqui, StudentID: 200473896
     * @date		25-11-2021 (Created & Modified)
@@ -94,13 +94,13 @@ public:
 		///initially storing the right subtree to Null, since we have not inserted anything yet
 		rightSubTree = NULL;
 	}
-/*****************************************************************************************************************************
+	/*****************************************************************************************************************************
 	* @brief	Module Name is Node Class Parametrized Constructor
     * @author	Faiza Fatma Siddiqui, StudentID: 200473896
     * @date		25-11-2021 (Created & Modified)
     * @details 	Purpose of this constructor is to initialize a node that is created with its data i.e. alphabet with some values
 	* Description: Node Parametrized Constructor that intializes members for setting the values of data fields
-    * @param[in,out] data: for storing the alphabet char data type in the node of the tree
+    * @param[in,out] data: for storing the alphabet char data type in the node of binary tree
 	* @pre	Precondition: Constructor should be called with atleast one parameter of char type
 	* @post	Postcondition: Sets the inital values of code, the data stored in node, left subtree & right subtree
 	* Method Output: 
@@ -126,7 +126,7 @@ public:
 	/// Destructor for destructing the member variables, else they will hold memory
 	~Node(){};
 
-/*****************************************************************************************************************************
+	/*****************************************************************************************************************************
 	* @brief	Module Name is Create Tree Function
     * @author	Faiza Fatma Siddiqui
     * @date	25-11-2021 (Created & Modified)
@@ -182,7 +182,7 @@ public:
 					///creating new node for empty right subtree
 					rootPtr->rightSubTree = new Node;
 				}
-				///@endif 
+				///@endif
 				///now the root ptr is found and branch position is pointing to the right subtree
 				branchPosition = rootPtr->rightSubTree;
 			}
@@ -216,7 +216,7 @@ public:
 					///now the current position is on the right of the tree
 					branchPosition = branchPosition->rightSubTree;
 				}
-				///@endif 
+				///@endif
 			}
 			/// Fill the current position with the data that is the alphabet to be inserted in the tree
 			branchPosition->data = alphabet;
@@ -229,7 +229,7 @@ public:
 		}
 	}
 
-/*****************************************************************************************************************************
+	/*****************************************************************************************************************************
 	* @brief	Module Name is Find Letter Function
     * @author	Faiza Fatma Siddiqui
     * @date	25-11-2021 (Created & Modified)
@@ -286,22 +286,22 @@ public:
 				///recursive call to the right subtree until the letter is found
 				found = findLetter(branchPosition, lettertoFind);
 			}
-			///@endif 
+			///@endif
 		}
 		///@endif
 		/// return boolean value true or false if letter is found
 		return found;
 	}
 
-/*****************************************************************************************************************************
+	/*****************************************************************************************************************************
 	* @brief	Module Name is Find Code Function
     * @author	Faiza Fatma Siddiqui
     * @date	25-11-2021 (Created & Modified)
     * @details Purpose is to find the aplhabet from given a morse code & from a given root. 
     * Description: The morsecode can be found from the alphabet that is at root node, or can be in the left subtree or right subtree
 	* A recursive call is made to the function to find the code
-    * @param[in,out] Node* rootPtr - pointer to root node to traverse & find the letter from the tree
-	* @param[in] char code - the morse code to find so that it can be decoded
+    * @param[in,out] Node* rootPtr - pointer to root node to traverse & find the letter from binary tree
+	* @param[in] char code - the morse code to find it's letter from the tree, so that it can be decoded
     * @return	bool found, true if found, else false
 	* @pre	Precondition: Code to find should be a proper morsecode as mentioned in the input file
 	* @post	Postcondition: returns true if letter is found, else returns false
@@ -316,7 +316,7 @@ public:
 		///a flag to find the code
 		bool found = false;
 
-		///@if code is found, print and return true 
+		///@if code is found, print and return true
 		if (rootPtr->code == code)
 		{
 			///store the data of root node if found there, as the morse code decoded in a string
@@ -337,7 +337,7 @@ public:
 				///recursive call to the left subtree until the code is found
 				found = findCode(branchPosition, code);
 			}
-			///@endif 
+			///@endif
 			///@if left sub tree is empty, then root will point to left subtree
 			if (rootPtr->rightSubTree != NULL && found != true)
 			{
@@ -347,14 +347,14 @@ public:
 				///recursive call to the right subtree until the code is found
 				found = findCode(branchPosition, code);
 			}
-			///@endif 
+			///@endif
 		}
 		///@endif
 		/// return boolean value true or false if code is found
 		return found;
 	}
 
-/*****************************************************************************************************************************
+	/*****************************************************************************************************************************
 	* @brief	Module Name is Encode Function
     * @author	Faiza Fatma Siddiqui
     * @date	25-11-2021 (Created & Modified)
@@ -362,7 +362,7 @@ public:
     * Description: The delimeter between words is replaced with spaces then for every alphabet in the message, 
 	* the node of the tree is traversed to find it's morse code & encode it.
     * @param[in,out] Node* rootPtr - pointer to root node: To find the morse code of every alphabet from the tree 
-	* @param[in, out] string message - the message entered by the user
+	* @param[in, out] string message - the message entered by the user that is to be encoded in morse code
     * @return	null
 	* @pre	Precondition: The message should not contain any symbols or numbers
 	* @post	Postcondition: The message is encoded
@@ -378,7 +378,7 @@ public:
 		std::replace(message.begin(), message.end(), '/', ' ');
 
 		///to print the message entered by the user, for a well formatted output
-		cout << " in morse code: ";
+		cout << " in Morse Code: ";
 
 		///loop to traverse through every letter of the message entered
 		for (unsigned int i = 0; i < message.size(); i++)
@@ -389,22 +389,24 @@ public:
 			///pass every letter of the message to the find Letter in the tree to encode it
 			findLetter(rootPtr, lettertoFind);
 		}
-		cout << endl << endl;
+		cout << endl
+			 << endl;
 	}
 
-/*****************************************************************************************************************************
+	/*****************************************************************************************************************************
 	* @brief	Module Name is Decode Function
     * @author	Faiza Fatma Siddiqui
     * @date	25-11-2021 (Created & Modified)
     * @details Purpose is to decode the morsecode of the message entered by the user to the original message
     * Description: The delimeter between words is replaced with spaces then for every morsecode, 
 	* the node of the tree is traversed to find it's letter in the node to decode it.
-    * @param[in,out] Node* rootPtr - pointer to root node: To find the alphabet of every morsecode from the tree 
-	* @param[in, out] string morsecodeEncoded - the morsecode of the message entered by the user
+    * @param[in,out] Node* rootPtr - pointer to root node: To find the alphabet of every morsecode from the binary tree 
+	* @param[in, out] string morsecodeEncoded - the morsecode of the message entered by the user to decode it
     * @return	null
 	* @pre	Precondition: The morsecode should be from the input file itself. The encoding should be done properly for this function to work
 	* @post	Postcondition: The morsecode is decoded to the original message
-	* Method Output: The morsecode of the message entered by the user is decoded using a binary tree
+	* Method Output: The morsecode of the message entered by the user is decoded using the binary tree
+		The decoded message is then printed
 	* @bug	No known bugs
 *****************************************************************************************************************************/
 	void decode(Node *rootPtr, string morsecodeEncoded)
@@ -429,7 +431,7 @@ public:
 			{
 				morsecode += morsecodeEncoded.at(i);
 			}
-			///@endif 
+			///@endif
 		}
 		/// search for the morse code received from the binary tree to decode
 		findCode(rootPtr, morsecode);
