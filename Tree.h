@@ -309,31 +309,47 @@ bool findLetter(Node *rootPtr, char lettertoFind)
 *****************************************************************************************************************************/
 	bool findCode(Node *rootPtr, string code)
 	{
+		///the current position is set to null
 		Node *branchPosition = NULL;
 
+		///a flag to find the code
 		bool found = false;
 
+		///@if code is found, print and return true 
 		if (rootPtr->code == code)
 		{
+			///store the data of root node if found there, as the morse code decoded in a string
 			morse_decoded = morse_decoded + rootPtr->data + " ";
 
+			///return true since code is found
 			return true;
 		}
+		///@ifnot found on the root node, then check left & right sub tree
 		else if (rootPtr->code != code)
 		{
+			///@if left sub tree is empty, then root will point to left subtree
 			if (rootPtr->leftSubTree != NULL)
 			{
+				///set the current branch position to the left sub tree
 				branchPosition = rootPtr->leftSubTree;
 
+				///recursive call to the left subtree until the code is found
 				found = findCode(branchPosition, code);
 			}
+			///@endif 
+			///@if left sub tree is empty, then root will point to left subtree
 			if (rootPtr->rightSubTree != NULL && found != true)
 			{
+				///set the current branch position to the right sub tree
 				branchPosition = rootPtr->rightSubTree;
 
+				///recursive call to the right subtree until the code is found
 				found = findCode(branchPosition, code);
 			}
+			///@endif 
 		}
+		///@endif
+		/// return boolean value true or false if code is found
 		return found;
 	}
 /*****************************************************************************************************************************
