@@ -174,5 +174,26 @@ void createTree(Node *rootPtr, ifstream &myInputFile)
 		}
 		cout << endl << endl;
 	}
+    void decode(Node *rootPtr, string morsecodeEncoded)
+	{
+		string morsecode;
+
+		std::replace(morsecodeEncoded.begin(), morsecodeEncoded.end(), '/', ' ');
+
+		for (unsigned int i = 0; i < morsecodeEncoded.size(); i++)
+		{
+			if (morsecodeEncoded.at(i) == ' ')
+			{
+				findCode(rootPtr, morsecode);
+			}
+			else
+			{
+				morsecode += morsecodeEncoded.at(i);
+			}
+		}
+		findCode(rootPtr, morsecode);
+
+		cout << "Decoded Message: " << morsecodeEncoded << endl;
+	}
 };
 #endif
