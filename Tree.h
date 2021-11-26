@@ -61,6 +61,29 @@ public:
 
 		rightSubTree = NULL;
 	}
+/*****************************************************************************************************************************
+	* @brief	Module Name is Node Class Default Constructor
+    * @author	Faiza Fatma Siddiqui, StudentID: 200473896
+    * @date		25-11-2021 (Created & Modified)
+    * @details 	This class is used to define functions that perform the following operations related to binary tree:
+	* Description: Node Default Constructor that intializes members for setting the values of data fields
+	*	- Creating a binary tree using pre-order to input alphabets
+	*	- Finding a letter from the binary tree
+	*	- Finding a morse code from the letter in the binary tree
+	*	- Encoding a message received from the main function in morse code using the binary tree
+	*	- Decoding a message from morse code using the binary tree
+    * Purpose:	CS 700 - Software Development Fundamentals - Assignment 5
+	* Method Output: A message received from main function is encoded in morse code, then decoded to original message
+	* @param	None
+    * @return	integer - 0 if program executed successfully, else nonzero will be returned
+	* @pre	Precondition: Message entered by the user should not have numbers or symbols. Alphabets only
+	* @post	Postcondition: Gives the encoded and decoded message
+	* Method Output: 
+	* Asks the user to input a message to encode
+	* Encodes the message in Morse Code
+	* Decodes and prints the original message from Morse Code 
+    * @bug		No known bugs
+*****************************************************************************************************************************/
 
 Node(char data)
 	{
