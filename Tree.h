@@ -216,6 +216,21 @@ void createTree(Node *rootPtr, ifstream &myInputFile)
 		}
 		return found;
 	}
+    /*****************************************************************************************************************************
+	* @brief	Module Name is Find Code Function
+    * @author	Faiza Fatma Siddiqui
+    * @date	25-11-2021 (Created & Modified)
+    * @details Purpose is to find the aplhabet from given a morse code & from a given root. 
+    * Description: The morsecode can be found from the alphabet that is at root node, or can be in the left subtree or right subtree
+	* A recursive call is made to the function to find the code
+    * @param[in,out] Node* rootPtr - pointer to root node to traverse & find the letter from the tree
+	* @param[in] char code - the morse code to find so that it can be decoded
+    * @return	bool found, true if found, else false
+	* @pre	Precondition: Code to find should be a proper morsecode as mentioned in the input file
+	* @post	Postcondition: returns true if letter is found, else returns false
+	* Method Output: Finds the position of a given code, returns true if found, false if not found
+	* @bug	No known bugs
+*****************************************************************************************************************************/
 	bool findCode(Node *rootPtr, string code)
 	{
 		Node *branchPosition = NULL;
