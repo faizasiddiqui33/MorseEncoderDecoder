@@ -1,5 +1,5 @@
 /*****************************************************************************************************************************
-	* @file		Tree.h
+    * @file		Tree.h
     * @brief	Module Name is Tree Header File
     * @author	Faiza Fatma Siddiqui, StudentID: 200473896
     * @date		25-11-2021 (Created & Modified)
@@ -143,7 +143,7 @@ public:
 	*	A binary search tree for all alphabets a-z is created.
 	* @bug	No known bugs
 *****************************************************************************************************************************/
-void createTree(Node *rootPtr, ifstream &myInputFile)
+	void createTree(Node *rootPtr, ifstream &myInputFile)
 	{
 		///to store the alphabet that is to be entered as data in the node
 		char alphabet;
@@ -244,7 +244,7 @@ void createTree(Node *rootPtr, ifstream &myInputFile)
 	* Method Output: Finds the position of a given letter, returns true if found, false if not found
 	* @bug	No known bugs
 *****************************************************************************************************************************/
-bool findLetter(Node *rootPtr, char lettertoFind)
+	bool findLetter(Node *rootPtr, char lettertoFind)
 	{
 		///the current position is set to null
 		Node *branchPosition = NULL;
@@ -292,6 +292,7 @@ bool findLetter(Node *rootPtr, char lettertoFind)
 		/// return boolean value true or false if letter is found
 		return found;
 	}
+
 /*****************************************************************************************************************************
 	* @brief	Module Name is Find Code Function
     * @author	Faiza Fatma Siddiqui
@@ -352,6 +353,7 @@ bool findLetter(Node *rootPtr, char lettertoFind)
 		/// return boolean value true or false if code is found
 		return found;
 	}
+
 /*****************************************************************************************************************************
 	* @brief	Module Name is Encode Function
     * @author	Faiza Fatma Siddiqui
@@ -367,7 +369,7 @@ bool findLetter(Node *rootPtr, char lettertoFind)
 	* Method Output: A message entered by the user is encoded using a binary tree
 	* @bug	No known bugs
 *****************************************************************************************************************************/
-		void encode(Node *rootPtr, string message)
+	void encode(Node *rootPtr, string message)
 	{
 		///stores each letter from the message that is to be searched for encoding
 		char lettertoFind;
@@ -390,7 +392,7 @@ bool findLetter(Node *rootPtr, char lettertoFind)
 		cout << endl << endl;
 	}
 
-    /*****************************************************************************************************************************
+/*****************************************************************************************************************************
 	* @brief	Module Name is Decode Function
     * @author	Faiza Fatma Siddiqui
     * @date	25-11-2021 (Created & Modified)
@@ -405,26 +407,34 @@ bool findLetter(Node *rootPtr, char lettertoFind)
 	* Method Output: The morsecode of the message entered by the user is decoded using a binary tree
 	* @bug	No known bugs
 *****************************************************************************************************************************/
-
-    void decode(Node *rootPtr, string morsecodeEncoded)
+	void decode(Node *rootPtr, string morsecodeEncoded)
 	{
+		///a string to save morse code portion to be encoded
 		string morsecode;
 
+		///replace the morse code with the delimeter as mentioned
 		std::replace(morsecodeEncoded.begin(), morsecodeEncoded.end(), '/', ' ');
 
+		///for all the elements of encoded message, search for the code
 		for (unsigned int i = 0; i < morsecodeEncoded.size(); i++)
 		{
+			///@if space is encountered that means one morse code is received
 			if (morsecodeEncoded.at(i) == ' ')
 			{
+				/// search for the morse code received
 				findCode(rootPtr, morsecode);
 			}
+			///@else take one morse code at a time from morsecodeEncoded & go to the next morsecode
 			else
 			{
 				morsecode += morsecodeEncoded.at(i);
 			}
+			///@endif 
 		}
+		/// search for the morse code received from the binary tree to decode
 		findCode(rootPtr, morsecode);
 
+		///prints the decoded message
 		cout << "Decoded Message: " << morsecodeEncoded << endl;
 	}
 };
